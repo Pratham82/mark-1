@@ -25,8 +25,11 @@ const correctAnswers = () => {
   )
 }
 
-const wrongAnswer = () =>
-  console.log(chalk.red(`Wrong answer 😢\nYour current score is ${score}`))
+const wrongAnswer = (correctAnswer) =>
+  console.log(
+    chalk.red(`Wrong answer 😢\nYour current score is ${score}`),
+    chalk.green(`the correct answer is ${correctAnswer}`)
+  )
 
 const nextQuestion = () =>
   console.log(chalk.yellow('lets proceed with next Question!!!'))
@@ -35,18 +38,24 @@ const nextQuestion = () =>
 let name = readlineSync.question(chalk.blue('1. What is my name?  '))
 
 const nameAnswers = ['Prathamesh', 'prathamesh', 'pratham']
-nameAnswers.includes(name) ? correctAnswers() : wrongAnswer()
+nameAnswers.includes(name) ? correctAnswers() : wrongAnswer('Prathamesh')
 nextQuestion()
 
 let lang = readlineSync.question(
-  chalk.blue('2. What is My Fav Programming Language??  ')
+  chalk.blue(
+    '2. What is My Fav Programming Language? \nJava \nJavaScript \nPython\n'
+  )
 )
 
 const langAnswers = ['JavaScript', 'JS', 'js']
-langAnswers.includes(lang) ? correctAnswers() : wrongAnswer()
+langAnswers.includes(lang) ? correctAnswers() : wrongAnswer('JavaScript')
 nextQuestion()
 
-let father = readlineSync.question(chalk.blue('3. Who is lukes father ?  '))
+let father = readlineSync.question(
+  chalk.blue(
+    '3. Who is lukes father ? \nDarth vader \nObi wan kanobi \nKylo Ren\n'
+  )
+)
 const starWarsAnswers = [
   'Darth Vader',
   'Anakin Skywalker',
@@ -54,25 +63,25 @@ const starWarsAnswers = [
   'anakin',
 ]
 
-starWarsAnswers.includes(father) ? correctAnswers() : wrongAnswer()
+starWarsAnswers.includes(father) ? correctAnswers() : wrongAnswer('Darth Vader')
 nextQuestion()
 
 let favOs = readlineSync.question(
-  chalk.blue('4. Which os is my favorite ?\n1.Window \n2.MacOS \n3.Linux  ')
+  chalk.blue('4. Which os is my favorite ?\nWindows \nMacOS \nLinux  ')
 )
 const osAnswers = ['linux', 'Linux']
 
-osAnswers.includes(favOs) ? correctAnswers() : wrongAnswer()
+osAnswers.includes(favOs) ? correctAnswers() : wrongAnswer('Linux')
 nextQuestion()
 
 let jsFramework = readlineSync.question(
   chalk.blue(
-    '5. Which is my favorite JS framework ?\n1. React\n2. Angular\n3. Svelte\n4. Vue  '
+    '5. Which is my favorite JS framework ?\nReact\nAngular\nSvelte\nVue  '
   )
 )
 const jsFrameworks = ['React', 'react', 'reactjs']
 
-jsFrameworks.includes(jsFramework) ? correctAnswers() : wrongAnswer()
+jsFrameworks.includes(jsFramework) ? correctAnswers() : wrongAnswer('React')
 
 if (score == 25) {
   console.log(
